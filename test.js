@@ -7,6 +7,7 @@ const openai = new OpenAIApi(configuration);
 
 setTimeout(async () => {
     console.log('开始请求...')
+    console.log(`key:  ${process.env.OPENAI_API_KEY}`)
     const completion = await openai.createCompletion({
         model: "text-davinci-003",
         prompt: generatePrompt('cat'),
