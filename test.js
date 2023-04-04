@@ -1,9 +1,7 @@
 const  { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
-//   apiKey: "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",
-//   apiKey: "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"
-apiKey: "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"
+apiKey: process.env.OPENAI_API_KEY
 });
 const openai = new OpenAIApi(configuration);
 
@@ -19,7 +17,6 @@ setTimeout(async () => {
       }).catch(err => {
         console.log(`错误：${err}`)
       });
-    //   console.log(`${animal}响应：${completion.data.choices[0].text}`)
 }, 2000)
 
 function generatePrompt(animal) {
