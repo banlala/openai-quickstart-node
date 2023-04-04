@@ -11,8 +11,13 @@ setTimeout(async () => {
         model: "text-davinci-003",
         prompt: generatePrompt('cat'),
         temperature: 0.6,
+      }).then(res => {
+        console.log(`响应：${res}`)
+        console.log(`响应：${res.data.choices[0].text}`)
+      }).catch(err => {
+        console.log(`错误：${err}`)
       });
-      console.log(`${animal}响应：${completion.data.choices[0].text}`)
+    //   console.log(`${animal}响应：${completion.data.choices[0].text}`)
 }, 2000)
 
 function generatePrompt(animal) {
