@@ -1,13 +1,13 @@
 const  { Configuration, OpenAIApi } = require("openai");
 
 const configuration = new Configuration({
-apiKey: process.env.OPENAI_API_KEY
+apiKey: process.argv.slice(2)
 });
 const openai = new OpenAIApi(configuration);
 
 setTimeout(async () => {
     console.log('开始请求...')
-    console.log(`key:  ${process.env.OPENAI_API_KEY}`)
+    console.log(`key:  ${process.argv.slice(2)}`)
     const completion = await openai.createCompletion({
         model: "text-davinci-003",
         prompt: generatePrompt('cat'),
